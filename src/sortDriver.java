@@ -9,6 +9,7 @@ public class sortDriver {
 		Complex table = new Complex();
 		frame.add(table);
 		frame.setVisible(true);
+        
 	}
 
 

@@ -15,9 +15,13 @@ public class Complex extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		printbackgroup(g);
-		//for(Building b: buildings) {
-		//	b.drawPiece(g);
-		//}
+
+		
+
+		for(int i = 0; i < buildings.length; i++) {
+			buildings[i].setX(i*120);
+			buildings[i].drawPiece(g);
+		}
 	}
 
 	public void printbackgroup(Graphics g) {
