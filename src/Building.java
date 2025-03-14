@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 
 
-public class Piece { //IMPLEMENTS COMPARABLE
+public class Building { //IMPLEMENTS COMPARABLE
 
 	private int x, y;
 
@@ -12,7 +12,7 @@ public class Piece { //IMPLEMENTS COMPARABLE
 
 	private double angle;
 
-	public Piece() {//fits 1000x800 screen
+	public Building() {//fits 1000x800 screen
 		x = (int) (Math.random()*900);
 		y = (int) (Math.random()*700);
 		angle = Math.random()*(320)+40;
