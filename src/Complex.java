@@ -21,6 +21,9 @@ public class Complex extends JPanel {
 	}
 
 	public void printbackgroup(Graphics g) {
+		Color skyblue = new Color(135,206,235);
+		g.setColor(skyblue);
+		g.fillRect(0, 0, 1000, 700);
 		g.setColor(Color.gray);
 		g.fillRect(0, 650, 1000, 150);
 		g.setColor(Color.black);
