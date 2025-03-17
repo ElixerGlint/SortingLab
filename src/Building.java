@@ -8,7 +8,7 @@ public class Building { //IMPLEMENTS COMPARABLE
 
 	public Building() {//fits 1000x800 screen
 		x = 0;
-		y = 500;
+		y = 350;
 		c = Color.black;
 		height = 300;
 	}
