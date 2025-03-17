@@ -20,8 +20,6 @@ public class Building { //IMPLEMENTS COMPARABLE
 		height = h;
 	}
 
-	
-
 	public void drawPiece(Graphics g) {
 		g.setColor(c); //set background color
 		g.fillRect(x, y, 70, height);
