@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 public class Complex extends JPanel {
     private Building[] buildings;
 
-	public Complex() { //MAY NOT BE UP TO DATE COMPARED TO NUMOFBUILDINGS COMPLEX VERSION
+	public Complex() { 
 		buildings = new Building[10];
 		for(int i=0; i<buildings.length; i++) {
 			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
@@ -43,6 +43,7 @@ public class Complex extends JPanel {
 		}
 	}
 
+
 	public static void selectionsort(Comparable[] arr) {
         
         for(int i = 0; i < arr.length -1; i++) {
@@ -58,7 +59,8 @@ public class Complex extends JPanel {
         }
     }
 
-    public static void insertion(Integer[] arr) { //considered to be the fastest of the three sorting
+	/* 
+    public static void insertion(Integer[] arr) { //considered to be the fastest of the three sorting ON AVG
         for(int i = 1; i < arr.length; i++) {
             int j = i-1;
             int mover = arr[i];
@@ -68,7 +70,7 @@ public class Complex extends JPanel {
             }
             arr[j+1] = mover;
         }
-    }
+    }*/
 
 
     public static int binarysearch (Integer[] arr, int waldo) {
