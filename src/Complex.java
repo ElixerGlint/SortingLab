@@ -8,14 +8,14 @@ public class Complex extends JPanel {
 	public Complex() { //MAY NOT BE UP TO DATE COMPARED TO NUMOFBUILDINGS COMPLEX VERSION
 		buildings = new Building[10];
 		for(int i=0; i<buildings.length; i++) {
-			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
+			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600),100); //makes all buildings
 		}
 	}
 
 	public Complex(int numofbuildings) {
 		buildings = new Building[numofbuildings];
 		for(int i=0; i<buildings.length; i++) {
-			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
+			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600),100); //makes all buildings
 		}
 	}
 
