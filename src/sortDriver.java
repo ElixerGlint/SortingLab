@@ -6,7 +6,7 @@ public class sortDriver {
 		frame.setSize(1000, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//JOptionPane for dialogue NO SYSOUT
-		Complex table = new Complex();
+		Complex table = new Complex(7);
 		frame.add(table);
 		frame.setVisible(true);
         

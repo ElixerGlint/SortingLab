@@ -5,8 +5,15 @@ import javax.swing.JPanel;
 public class Complex extends JPanel {
     private Building[] buildings;
 
-	public Complex() {
+	public Complex() { //MAY NOT BE UP TO DATE COMPARED TO NUMOFBUILDINGS COMPLEX VERSION
 		buildings = new Building[10];
+		for(int i=0; i<buildings.length; i++) {
+			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
+		}
+	}
+
+	public Complex(int numofbuildings) {
+		buildings = new Building[numofbuildings];
 		for(int i=0; i<buildings.length; i++) {
 			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
 		}
@@ -19,7 +26,7 @@ public class Complex extends JPanel {
 		
 
 		for(int i = 0; i < buildings.length; i++) {
-			buildings[i].setX(i*120);
+			buildings[i].setX(i*(1040/buildings.length)); //cool math: scales it for the # of buildings
 			buildings[i].drawPiece(g);
 		}
 	}
