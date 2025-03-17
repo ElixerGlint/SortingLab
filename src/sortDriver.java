@@ -9,7 +9,8 @@ public class sortDriver {
 		Complex table = new Complex(10);
 		frame.add(table);
 		frame.setVisible(true);
-        
+        Complex.bubblesort(table);
+
 	}
 
 
