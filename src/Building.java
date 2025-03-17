@@ -13,6 +13,13 @@ public class Building { //IMPLEMENTS COMPARABLE
 		height = 300;
 	}
 
+	public Building(Color col, int h) {//fits 1000x800 screen
+		x = 0;
+		y = 650;
+		c = col;
+		height = h;
+	}
+
 	
 
 	public void drawPiece(Graphics g) {

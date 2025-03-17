@@ -8,7 +8,7 @@ public class Complex extends JPanel {
 	public Complex() {
 		buildings = new Building[10];
 		for(int i=0; i<buildings.length; i++) {
-			buildings[i] =  new Building(); //makes all buildings
+			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
 		}
 	}
 
