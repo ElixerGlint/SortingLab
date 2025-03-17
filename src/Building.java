@@ -1,7 +1,7 @@
 ﻿import java.awt.Color;
 import java.awt.Graphics;
 
-public class Building { //IMPLEMENTS COMPARABLE
+public class Building implements Comparable { //IMPLEMENTS COMPARABLE
 	private int x, y;
 	private Color c;
 	private int height;
@@ -50,6 +50,14 @@ public class Building { //IMPLEMENTS COMPARABLE
 	public void setHeight(int height) {
 		this.height = height;
 	}
+
+	@Override
+	public int compareTo(Object o) {
+        //class cast exception error in the case that a "cat" is casted into a dog without being able to
+        Building d = (Building)(o);
+        
+        return height - d.getHeight();
+    }
 
 	
 }
