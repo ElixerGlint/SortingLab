@@ -4,19 +4,25 @@ import javax.swing.JPanel;
 
 public class Complex extends JPanel {
     private Building[] buildings;
+	private int index1;
+	private int index2;
 
 	public Complex() { 
 		buildings = new Building[10];
 		for(int i=0; i<buildings.length; i++) {
-			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
+			buildings[i] =  new Building(-(int)(Math.random()*600)); //makes all buildings
 		}
+		index1 = -1;
+		index2 = -1;
 	}
 
 	public Complex(int numofbuildings) {
 		buildings = new Building[numofbuildings];
 		for(int i=0; i<buildings.length; i++) {
-			buildings[i] =  new Building(Color.black, -(int)(Math.random()*600)); //makes all buildings
+			buildings[i] =  new Building(-(int)(Math.random()*600)); //makes all buildings
 		}
+		index1 = -1;
+		index2 = -1;
 	}
 
 	public void paintComponent(Graphics g) {
@@ -27,7 +33,14 @@ public class Complex extends JPanel {
 
 		for(int i = 0; i < buildings.length; i++) {
 			buildings[i].setX(i*99); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
-			buildings[i].drawPiece(g);
+			if(i == index1 || i == index2) {
+				buildings[i].drawPiece(g,Color.green);
+			}
+			else {
+				buildings[i].drawPiece(g,Color.black);
+			}
+			
+			
 		}
 	}
 
@@ -44,7 +57,7 @@ public class Complex extends JPanel {
 	}
 
 
-	public static void selectionsort(Comparable[] arr) {
+	/*public static void selectionsort(Comparable[] arr) {
         
         for(int i = 0; i < arr.length -1; i++) {
             int minSpot = i;
@@ -57,7 +70,7 @@ public class Complex extends JPanel {
             arr[i] = arr[minSpot];
             arr[minSpot] = temp;
         }
-    }
+    }*/
 
 	/* 
     public static void insertion(Integer[] arr) { //considered to be the fastest of the three sorting ON AVG
@@ -71,9 +84,8 @@ public class Complex extends JPanel {
             arr[j+1] = mover;
         }
     }*/
-
-
-    public static int binarysearch (Integer[] arr, int waldo) {
+	
+    /*public static int binarysearch (Integer[] arr, int waldo) {
         int left = 0;
         int right = arr.length-1;
         while(right >= left) {
@@ -89,13 +101,9 @@ public class Complex extends JPanel {
             }
         }
         return -1;
-    }
-
-    /**
-     * is quite efficient because it has a getout, (if perfect)
-     * @param arr
-     * @return
-     */
+    }*/
+    
+	/* 
     public static int bubblesort(Integer[] arr) {
         int scans = 0;
         int counter = 0;
@@ -117,6 +125,6 @@ public class Complex extends JPanel {
 
         System.out.println("Efficiency:" + counter);
         return scans;
-    }
+    }*/
 
 }
