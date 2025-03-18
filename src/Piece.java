@@ -29,8 +29,6 @@ public class Piece extends JPanel {
 		super.paintComponent(g);
 		printbackgroup(g);
 
-		
-
 		for(int i = 0; i < buildings.length; i++) {
 			buildings[i].setX(i*99); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
 			if(i == index1 || i == index2) {
@@ -104,15 +102,18 @@ public class Piece extends JPanel {
     }*/
     
 	
-    public void bubblesort() {
+    public void bubblesort() throws InterruptedException {
         int scans = 0;
         boolean sorted = false;
         while(!sorted) {
             sorted = true;
             for(int i = 0; i < buildings.length -1 - scans; i++) {
+
                 if(buildings[i].compareTo(buildings[i+1]) > 0) {
-					// index1 = i;
-					// index2 = i+1;
+					index1 = i;
+					index2 = i+1;
+                    repaint();
+                    Thread.sleep(500);
 
                     int temp = buildings[i].getHeight();
                     buildings[i].setHeight(buildings[i+1].getHeight());
@@ -121,7 +122,8 @@ public class Piece extends JPanel {
                 }
             }
         }
-
+        index1 = -1;
+        index2 = -1;
     }
 
 }
