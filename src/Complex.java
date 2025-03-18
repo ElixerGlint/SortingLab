@@ -105,7 +105,6 @@ public class Complex extends JPanel {
     
 	
     public void bubblesort() {
-		
         int scans = 0;
         boolean sorted = false;
         while(!sorted) {
