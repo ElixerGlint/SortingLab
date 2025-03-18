@@ -30,7 +30,7 @@ public class Piece extends JPanel {
 		printbackgroup(g);
 
 		for(int i = 0; i < buildings.length; i++) {
-			buildings[i].setX(i*99); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
+			buildings[i].setX((i*(980/buildings.length))); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
 			if(i == index1 || i == index2) {
 				buildings[i].drawPiece(g,Color.green);
 			}
@@ -113,7 +113,7 @@ public class Piece extends JPanel {
 					index1 = i;
 					index2 = i+1;
                     repaint();
-                    Thread.sleep(500);
+                    Thread.sleep(50); //normally 500, maybe scale
 
                     int temp = buildings[i].getHeight();
                     buildings[i].setHeight(buildings[i+1].getHeight());
