@@ -104,17 +104,17 @@ public class Complex extends JPanel {
     }*/
     
 	
-    public static void bubblesort(Building[] arr) {
+    public void bubblesort() {
 		
         int scans = 0;
         boolean sorted = false;
         while(!sorted) {
             sorted = true;
-            for(int i = 0; i < arr.length -1 - scans; i++) {
-                if(arr[i].compareTo(arr[i+1]) > 0) {
-                    int temp = arr[i].getHeight();
-                    arr[i].setHeight(arr[i+1].getHeight());
-					arr[i+1].setHeight(temp);
+            for(int i = 0; i < buildings.length -1 - scans; i++) {
+                if(buildings[i].compareTo(buildings[i+1]) > 0) {
+                    int temp = buildings[i].getHeight();
+                    buildings[i].setHeight(buildings[i+1].getHeight());
+					buildings[i+1].setHeight(temp);
                     sorted = false;
                 }
             }
