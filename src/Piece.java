@@ -2,12 +2,12 @@
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-public class Complex extends JPanel {
+public class Piece extends JPanel {
     private Building[] buildings;
 	private int index1;
 	private int index2;
 
-	public Complex() { 
+	public Piece() { 
 		buildings = new Building[10];
 		for(int i=0; i<buildings.length; i++) {
 			buildings[i] =  new Building(-(int)(Math.random()*600)); //makes all buildings
@@ -16,7 +16,7 @@ public class Complex extends JPanel {
 		index2 = -1;
 	}
 
-	public Complex(int numofbuildings) {
+	public Piece(int numofbuildings) {
 		buildings = new Building[numofbuildings];
 		for(int i=0; i<buildings.length; i++) {
 			buildings[i] =  new Building(-(int)(Math.random()*600)); //makes all buildings
@@ -111,6 +111,9 @@ public class Complex extends JPanel {
             sorted = true;
             for(int i = 0; i < buildings.length -1 - scans; i++) {
                 if(buildings[i].compareTo(buildings[i+1]) > 0) {
+					// index1 = i;
+					// index2 = i+1;
+
                     int temp = buildings[i].getHeight();
                     buildings[i].setHeight(buildings[i+1].getHeight());
 					buildings[i+1].setHeight(temp);
