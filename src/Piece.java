@@ -109,11 +109,11 @@ public class Piece extends JPanel {
             sorted = true;
             for(int i = 0; i < buildings.length -1 - scans; i++) {
 
-                if(buildings[i].compareTo(buildings[i+1]) > 0) {
+                if(buildings[i].compareTo(buildings[i+1]) < 0) {
 					index1 = i;
 					index2 = i+1;
                     repaint();
-                    Thread.sleep(50); //normally 500, maybe scale
+                    Thread.sleep(10); //normally 500, maybe scale
 
                     int temp = buildings[i].getHeight();
                     buildings[i].setHeight(buildings[i+1].getHeight());
