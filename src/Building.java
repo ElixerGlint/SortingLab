@@ -4,22 +4,25 @@ import java.awt.Graphics;
 public class Building implements Comparable { //IMPLEMENTS COMPARABLE
 	private int x, y;
 	private int height;
+	private int width;
 
 	public Building() {//fits 1000x800 screen
 		x = 0;
 		y = 350;
 		height = 300;
+		width = 70;
 	}
 
-	public Building(int h) {//fits 1000x800 screen
+	public Building(int h, int w) {//fits 1000x800 screen
 		x = 0;
 		y = 650;
 		height = h;
+		width = w;
 	}
 
 	public void drawPiece(Graphics g, Color c) {
 		g.setColor(c); //set background color
-		g.fillRect(x, y, 10, height); //70 normally, NEEDS TO BE SCALED
+		g.fillRect(x, y, width, height); //70 normally, NEEDS TO BE SCALED
 	}
 
 	//getters and setters

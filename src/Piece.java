@@ -10,7 +10,7 @@ public class Piece extends JPanel {
 	public Piece() { 
 		buildings = new Building[10];
 		for(int i=0; i<buildings.length; i++) {
-			buildings[i] =  new Building(-(int)(Math.random()*600)); //makes all buildings
+			buildings[i] =  new Building(-(int)(Math.random()*600),70); //makes all buildings
 		}
 		index1 = -1;
 		index2 = -1;
@@ -19,7 +19,7 @@ public class Piece extends JPanel {
 	public Piece(int numofbuildings) {
 		buildings = new Building[numofbuildings];
 		for(int i=0; i<buildings.length; i++) {
-			buildings[i] =  new Building(-(int)(Math.random()*600)); //makes all buildings
+			buildings[i] =  new Building(-(int)(Math.random()*600),700/buildings.length); //makes all buildings
 		}
 		index1 = -1;
 		index2 = -1;
