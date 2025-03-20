@@ -6,6 +6,7 @@ public class Piece extends JPanel {
     private Building[] buildings;
 	private int index1;
 	private int index2;
+    private int sortednum;
 
 	public Piece() { 
 		buildings = new Building[10];
@@ -14,6 +15,7 @@ public class Piece extends JPanel {
 		}
 		index1 = -1;
 		index2 = -1;
+        sortednum = -1;
 	}
 
 	public Piece(int numofbuildings) {
@@ -23,6 +25,7 @@ public class Piece extends JPanel {
 		}
 		index1 = -1;
 		index2 = -1;
+        sortednum = -1;
 	}
 
 	public void paintComponent(Graphics g) {
@@ -31,7 +34,7 @@ public class Piece extends JPanel {
 
 		for(int i = 0; i < buildings.length; i++) {
 			buildings[i].setX((i*(980/buildings.length))); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
-			if(i == index1 || i == index2) {
+			if(i == index1 || i == index2 || i < sortednum) {
 				buildings[i].drawPiece(g,Color.green);
 			}
 			else {
@@ -121,6 +124,12 @@ public class Piece extends JPanel {
                     sorted = false;
                 }
             }
+        }
+        
+        for(int i = 0; i < buildings.length + 1; i++) {
+            sortednum++;
+            repaint();
+            Thread.sleep(10); //normally 500, maybe scale
         }
         index1 = -1;
         index2 = -1;
