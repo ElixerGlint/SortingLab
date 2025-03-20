@@ -117,10 +117,7 @@ public class Piece extends JPanel {
 					index2 = i+1;
                     repaint();
                     Thread.sleep(10); //normally 500, maybe scale
-
-                    int temp = buildings[i].getHeight();
-                    buildings[i].setHeight(buildings[i+1].getHeight());
-					buildings[i+1].setHeight(temp);
+                    flip(index1,index2);
                     sorted = false;
                 }
             }
@@ -135,4 +132,9 @@ public class Piece extends JPanel {
         index2 = -1;
     }
 
+    private void flip(int index1, int index2) {
+        int temp = buildings[index1].getHeight();
+        buildings[index1].setHeight(buildings[index2].getHeight());
+        buildings[index2].setHeight(temp);
+    }
 }
