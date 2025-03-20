@@ -169,6 +169,7 @@ public class Piece extends JPanel {
             repaint();
             Thread.sleep(100);
             if(buildings[index2].getX() < building1x) {
+                buildings[index2].setX(building1x);
                 break;
             }
         }
