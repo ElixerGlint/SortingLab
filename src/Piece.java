@@ -16,6 +16,9 @@ public class Piece extends JPanel {
 		index1 = -1;
 		index2 = -1;
         sortednum = -1;
+        for(int i = 0; i < buildings.length; i++) {
+			buildings[i].setX((i*(980/buildings.length))); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
+        }
 	}
 
 	public Piece(int numofbuildings) {
@@ -26,6 +29,9 @@ public class Piece extends JPanel {
 		index1 = -1;
 		index2 = -1;
         sortednum = -1;
+        for(int i = 0; i < buildings.length; i++) {
+			buildings[i].setX((i*(980/buildings.length))); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
+        }
 	}
 
 	public void paintComponent(Graphics g) {
@@ -33,7 +39,7 @@ public class Piece extends JPanel {
 		printbackgroup(g);
 
 		for(int i = 0; i < buildings.length; i++) {
-			buildings[i].setX((i*(980/buildings.length))); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
+			
 			if(i == index1 || i == index2 || i < sortednum) {
 				buildings[i].drawPiece(g,Color.green);
 			}
@@ -157,7 +163,7 @@ public class Piece extends JPanel {
             }
         }
         
-        while(true) {
+        while(true) { //-----------------------------ANIMATION------------------------------ANIMATION--------------------------ANIMATION-----------------------
             buildings[index2].setX(buildings[index2].getX()-10);
             System.out.println("I am stucl");
             repaint();
