@@ -133,8 +133,18 @@ public class Piece extends JPanel {
     }
 
     private void flip(int index1, int index2) {
-        int temp = buildings[index1].getHeight();
-        buildings[index1].setHeight(buildings[index2].getHeight());
-        buildings[index2].setHeight(temp);
+
+
+
+        int building1height = buildings[index1].getHeight();
+        int building2height = buildings[index2].getHeight();
+
+
+        
+
+
+
+        buildings[index1].setHeight(building2height);
+        buildings[index2].setHeight(building1height);
     }
 }
