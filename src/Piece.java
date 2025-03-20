@@ -117,6 +117,7 @@ public class Piece extends JPanel {
 					index2 = i+1;
                     repaint();
                     Thread.sleep(10); //normally 500, maybe scale
+
                     flip(index1,index2);
                     sorted = false;
                 }
@@ -132,15 +133,39 @@ public class Piece extends JPanel {
         index2 = -1;
     }
 
-    private void flip(int index1, int index2) {
+    private void flip(int index1, int index2) throws InterruptedException {
 
 
 
         int building1height = buildings[index1].getHeight();
         int building2height = buildings[index2].getHeight();
+        int building1x = buildings[index1].getX();
+        int building2x = buildings[index2].getX();
 
 
+        while(true) {
+            buildings[index1].setHeight(buildings[index1].getHeight() + 10);
+            Thread.sleep(100);
+            repaint();
+            
+
+            if(buildings[index1].getHeight() > 0) {
+                buildings[index1].setHeight(0);
+                repaint();
+                Thread.sleep(1000);
+                break;
+            }
+        }
         
+        while(true) {
+            buildings[index2].setX(buildings[index2].getX()-10);
+            System.out.println("I am stucl");
+            repaint();
+            Thread.sleep(100);
+            if(buildings[index2].getX() < building1x) {
+                break;
+            }
+        }
 
 
 
