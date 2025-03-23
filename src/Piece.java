@@ -118,12 +118,11 @@ public class Piece extends JPanel {
             sorted = true;
 
             for(int i = 0; i < buildings.length -1 - scans; i++) {
-                Thread.sleep(1000);
+                Thread.sleep(100);
                 if(buildings[i].compareTo(buildings[i+1]) < 0) {
 					index1 = i;
 					index2 = i+1;
                     repaint();
-                    Thread.sleep(10); //normally 500, maybe scale
 
                     flip(index1,index2);
                     sorted = false;
@@ -134,7 +133,7 @@ public class Piece extends JPanel {
         for(int i = 0; i < buildings.length + 1; i++) {
             sortednum++;
             repaint();
-            Thread.sleep(10); //normally 500, maybe scale
+            Thread.sleep(50); //normally 500, maybe scale
         }
         index1 = -1;
         index2 = -1;
@@ -152,27 +151,27 @@ public class Piece extends JPanel {
 
         while(true) {
             buildings[index1].setHeight(buildings[index1].getHeight() + 10);
-            Thread.sleep(100);
+            Thread.sleep(10);
             repaint();
             
 
             if(buildings[index1].getHeight() > 0) {
                 buildings[index1].setHeight(0);
                 repaint();
-                Thread.sleep(1000);
+                Thread.sleep(100);
                 break;
             }
         }
         while(true) {
             buildings[index2].setHeight(buildings[index2].getHeight() + 10);
-            Thread.sleep(100);
+            Thread.sleep(10);
             repaint();
             
 
             if(buildings[index2].getHeight() > 0) {
                 buildings[index2].setHeight(0);
                 repaint();
-                Thread.sleep(1000);
+                Thread.sleep(100);
                 break;
             }
         }
@@ -183,7 +182,7 @@ public class Piece extends JPanel {
         while(true) { 
             buildings[index1].setHeight(buildings[index1].getHeight()-10);
             repaint();
-            Thread.sleep(100);
+            Thread.sleep(10);
             if(buildings[index1].getHeight() < building1height) {
                 buildings[index1].setHeight(building1height);
                 break;
@@ -194,7 +193,7 @@ public class Piece extends JPanel {
             buildings[index2].setHeight(buildings[index2].getHeight()-10);
             repaint();
 
-            Thread.sleep(100);
+            Thread.sleep(10);
             if(buildings[index2].getHeight() < building2height) {
                 buildings[index2].setHeight(building2height);
                 break;
