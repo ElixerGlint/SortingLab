@@ -116,8 +116,9 @@ public class Piece extends JPanel {
         boolean sorted = false;
         while(!sorted) {
             sorted = true;
-            for(int i = 0; i < buildings.length -1 - scans; i++) {
 
+            for(int i = 0; i < buildings.length -1 - scans; i++) {
+                Thread.sleep(1000);
                 if(buildings[i].compareTo(buildings[i+1]) < 0) {
 					index1 = i;
 					index2 = i+1;
@@ -162,20 +163,47 @@ public class Piece extends JPanel {
                 break;
             }
         }
-        
-        while(true) { //-----------------------------ANIMATION------------------------------ANIMATION--------------------------ANIMATION-----------------------
-            buildings[index2].setX(buildings[index2].getX()-10);
-            System.out.println("I am stucl");
+        while(true) {
+            buildings[index2].setHeight(buildings[index2].getHeight() + 10);
+            Thread.sleep(100);
+            repaint();
+            
+
+            if(buildings[index2].getHeight() > 0) {
+                buildings[index2].setHeight(0);
+                repaint();
+                Thread.sleep(1000);
+                break;
+            }
+        }
+
+        buildings[index1].setX(building2x);
+        buildings[index2].setX(building1x);
+
+        while(true) { 
+            buildings[index1].setHeight(buildings[index1].getHeight()-10);
             repaint();
             Thread.sleep(100);
-            if(buildings[index2].getX() < building1x) {
-                buildings[index2].setX(building1x);
+            if(buildings[index1].getHeight() < building1height) {
+                buildings[index1].setHeight(building1height);
+                break;
+            }
+        }
+
+        while(true) { 
+            buildings[index2].setHeight(buildings[index2].getHeight()-10);
+            repaint();
+
+            Thread.sleep(100);
+            if(buildings[index2].getHeight() < building2height) {
+                buildings[index2].setHeight(building2height);
                 break;
             }
         }
 
 
-
+        buildings[index1].setX(building1x);
+        buildings[index2].setX(building2x);
         buildings[index1].setHeight(building2height);
         buildings[index2].setHeight(building1height);
     }
