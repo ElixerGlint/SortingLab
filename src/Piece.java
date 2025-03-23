@@ -140,7 +140,7 @@ public class Piece extends JPanel {
         index2 = -1;
     }
 
-    private void flip(int index1, int index2) throws InterruptedException {
+    private void flip(int index1, int index2) throws InterruptedException { //this flips two buildings.
         int building1height = buildings[index1].getHeight();
         int building2height = buildings[index2].getHeight();
         int building1x = buildings[index1].getX();
