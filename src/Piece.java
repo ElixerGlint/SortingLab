@@ -118,7 +118,8 @@ public class Piece extends JPanel {
             sorted = true;
 
             for(int i = 0; i < buildings.length -1 - scans; i++) {
-                Thread.sleep(100);
+                //Thread.sleep(100);
+                //DO THE CAR ANIMATION HERE
                 if(buildings[i].compareTo(buildings[i+1]) < 0) {
 					index1 = i;
 					index2 = i+1;
@@ -140,9 +141,6 @@ public class Piece extends JPanel {
     }
 
     private void flip(int index1, int index2) throws InterruptedException {
-
-
-
         int building1height = buildings[index1].getHeight();
         int building2height = buildings[index2].getHeight();
         int building1x = buildings[index1].getX();
@@ -162,6 +160,8 @@ public class Piece extends JPanel {
                 break;
             }
         }
+
+        
         while(true) {
             buildings[index2].setHeight(buildings[index2].getHeight() + 10);
             Thread.sleep(10);
