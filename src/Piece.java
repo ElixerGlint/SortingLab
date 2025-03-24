@@ -73,26 +73,40 @@ public class Piece extends JPanel {
 	}
 
 
-	public void selectionsort() { //DOES NOT REMOTLEY WORK
-        int scans = 0;
-        int accessed = 0;
-        int mutated = 0;
-        boolean sorted = false;
-        while(!sorted) {
-            sorted = true;
-           for(int i = 0; i < buildings.length -1; i++) {
-                int minSpot = i;
-                for(int j = i; j < buildings.length; j++) {
-                    if(buildings[minSpot].compareTo(buildings[j]) > 0) {
-                        minSpot = j;
-                    }
+	public void selectionsort() throws InterruptedException { //DOES NOT REMOTLEY WORK
+        for(int i = 0; i < buildings.length; i++) {
+            int minspot = i;
+            for(int j = i; j < buildings.length; j++) {
+                destroyer.setX(buildings[i].getX());
+                repaint();
+                Thread.sleep(100);
+            //----------------------------------------------------------
+                if(buildings[minspot].compareTo(buildings[j]) > 0) {
+                    minspot = j;
                 }
-                Building temp = buildings[i];
-                buildings[i] = buildings[minSpot];
-                buildings[minSpot] = temp;
-                sorted = false;
             }
-        }  
+
+            index1 = i;
+            index2 = minspot;
+            repaint();
+            flip(index1,index2);
+
+
+                
+            
+        }
+            
+        
+        
+        for(int i = 0; i < buildings.length + 1; i++) {
+            sortednum++;
+            repaint();
+            Thread.sleep(50); //normally 500, maybe scale
+        }
+        index1 = -1;
+        index2 = -1;
+        // System.out.println(accessed);
+        // System.out.println(mutated);
     }
 
 	/* 
@@ -136,19 +150,9 @@ public class Piece extends JPanel {
             sorted = true;
 
             for(int i = 0; i < buildings.length -1 - scans; i++) {
-                
-                
-                
-                destroyer.setX(i*99); //SCALE THIS TODO: SCALE------------------------------------------------------------------------
+                destroyer.setX(buildings[i].getX());
                 repaint();
                 Thread.sleep(1000);
-                //DO THE CAR ANIMATION HERE
-                
-                
-
-
-
-
 
                 //----------------------------------------------------------
                 accessed+=2;
@@ -173,8 +177,8 @@ public class Piece extends JPanel {
         }
         index1 = -1;
         index2 = -1;
-        System.out.println(accessed);
-        System.out.println(mutated);
+        // System.out.println(accessed);
+        // System.out.println(mutated);
     }
 
     private void flip(int index1, int index2) throws InterruptedException { //this flips two buildings.
