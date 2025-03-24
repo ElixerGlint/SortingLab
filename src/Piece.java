@@ -73,7 +73,16 @@ public class Piece extends JPanel {
 	}
 
 
-	/*public static void selectionsort(Comparable[] arr) {
+	public void selectionsort() {
+        int scans = 0;
+        int accessed = 0;
+        int mutated = 0;
+        boolean sorted = false;
+        while(!sorted) {
+           
+        }
+
+        //------------------------------------
         
         for(int i = 0; i < arr.length -1; i++) {
             int minSpot = i;
@@ -86,7 +95,7 @@ public class Piece extends JPanel {
             arr[i] = arr[minSpot];
             arr[minSpot] = temp;
         }
-    }*/
+    }
 
 	/* 
     public static void insertion(Integer[] arr) { //considered to be the fastest of the three sorting ON AVG
@@ -101,23 +110,23 @@ public class Piece extends JPanel {
         }
     }*/
 	
-    /*public static int binarysearch (Integer[] arr, int waldo) {
-        int left = 0;
-        int right = arr.length-1;
-        while(right >= left) {
-            int middle = (right + left)/2;
-            if(arr[middle] == waldo) {
-                return middle;
-            }
-            else if(arr[middle] > waldo) {
-                right = middle -1;
-            }
-            else {
-                left = middle +1;
-            }
-        }
-        return -1;
-    }*/
+    // /*public static int binarysearch (Integer[] arr, int waldo) {
+    //     int left = 0;
+    //     int right = arr.length-1;
+    //     while(right >= left) {
+    //         int middle = (right + left)/2;
+    //         if(arr[middle] == waldo) {
+    //             return middle;
+    //         }
+    //         else if(arr[middle] > waldo) {
+    //             right = middle -1;
+    //         }
+    //         else {
+    //             left = middle +1;
+    //         }
+    //     }
+    //     return -1;
+    // }*/
     
 	
     public void bubblesort() throws InterruptedException {
