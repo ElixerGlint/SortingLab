@@ -112,7 +112,7 @@ public class Piece extends JPanel {
             int mover = buildings[i].getHeight();
             destroyer.setX(buildings[i].getX());
             repaint();
-            Thread.sleep(100);
+            Thread.sleep(1000);
             while(j >= 0 && buildings[j].getHeight() > mover) {
                 
                 index1 = j+1;
@@ -120,12 +120,6 @@ public class Piece extends JPanel {
                 flip(index1, index2);
                 j--;
             }
-
-
-
-
-            
-
             // ----------------------------------------------------------
 
         }
