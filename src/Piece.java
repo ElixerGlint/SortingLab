@@ -136,8 +136,14 @@ public class Piece extends JPanel {
             sorted = true;
 
             for(int i = 0; i < buildings.length -1 - scans; i++) {
-                //Thread.sleep(100);
+                
+                
+                
+                destroyer.setX(i*99);
+                repaint();
+                Thread.sleep(1000);
                 //DO THE CAR ANIMATION HERE
+                
                 
 
 
