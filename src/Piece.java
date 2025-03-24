@@ -73,28 +73,26 @@ public class Piece extends JPanel {
 	}
 
 
-	public void selectionsort() {
+	public void selectionsort() { //DOES NOT REMOTLEY WORK
         int scans = 0;
         int accessed = 0;
         int mutated = 0;
         boolean sorted = false;
         while(!sorted) {
-           
-        }
-
-        //------------------------------------
-        
-        for(int i = 0; i < arr.length -1; i++) {
-            int minSpot = i;
-            for(int j = i; j < arr.length; j++) {
-                if(arr[minSpot].compareTo(arr[j]) > 0) {
-                    minSpot = j;
+            sorted = true;
+           for(int i = 0; i < buildings.length -1; i++) {
+                int minSpot = i;
+                for(int j = i; j < buildings.length; j++) {
+                    if(buildings[minSpot].compareTo(buildings[j]) > 0) {
+                        minSpot = j;
+                    }
                 }
+                Building temp = buildings[i];
+                buildings[i] = buildings[minSpot];
+                buildings[minSpot] = temp;
+                sorted = false;
             }
-            Comparable temp = arr[i];
-            arr[i] = arr[minSpot];
-            arr[minSpot] = temp;
-        }
+        }  
     }
 
 	/* 

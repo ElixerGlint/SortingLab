@@ -23,7 +23,10 @@ public class sortDriver {
 		if(whichsort.equals("Bubble Sort")) {
 			table.bubblesort();
 		}
-        
+		
+		if(whichsort.equals("Selection Sort")) {
+			table.selectionsort();
+		}
 
 
 		frame.repaint();
