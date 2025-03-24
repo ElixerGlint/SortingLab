@@ -90,10 +90,6 @@ public class Piece extends JPanel {
             index2 = minspot;
             repaint();
             flip(index1,index2);
-
-
-                
-            
         }
             
         
