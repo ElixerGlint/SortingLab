@@ -7,6 +7,7 @@ public class Piece extends JPanel {
 	private int index1;
 	private int index2;
     private int sortednum;
+    private car destroyer;
 
 	public Piece() { 
 		buildings = new Building[10];
@@ -19,6 +20,7 @@ public class Piece extends JPanel {
         for(int i = 0; i < buildings.length; i++) {
 			buildings[i].setX((i*(980/buildings.length))); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
         }
+        destroyer = new car();
 	}
 
 	public Piece(int numofbuildings) {
@@ -32,6 +34,7 @@ public class Piece extends JPanel {
         for(int i = 0; i < buildings.length; i++) {
 			buildings[i].setX((i*(980/buildings.length))); //cool math: scales it for the # of buildings (i*(1040/buildings.length))
         }
+        destroyer = new car();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -49,6 +52,7 @@ public class Piece extends JPanel {
 			
 			
 		}
+
 	}
 
 	public void printbackgroup(Graphics g) {
@@ -61,6 +65,14 @@ public class Piece extends JPanel {
 		for(int i = 0; i < 32; i++) {
 			g.fillRect(30*i + 20, 700, 15, 5);
 		}
+        if(index1 == -1) {
+            destroyer.setX(0);
+        }
+        else{ //moving animation here
+            destroyer.setX(buildings[index1].getX());
+        }
+        
+        destroyer.drawcar(g);
 	}
 
 
@@ -113,6 +125,8 @@ public class Piece extends JPanel {
 	
     public void bubblesort() throws InterruptedException {
         int scans = 0;
+        int accessed = 0;
+        int mutated = 0;
         boolean sorted = false;
         while(!sorted) {
             sorted = true;
@@ -120,11 +134,22 @@ public class Piece extends JPanel {
             for(int i = 0; i < buildings.length -1 - scans; i++) {
                 //Thread.sleep(100);
                 //DO THE CAR ANIMATION HERE
+                
+
+
+
+
+
+                //----------------------------------------------------------
+                accessed+=2;
                 if(buildings[i].compareTo(buildings[i+1]) < 0) {
 					index1 = i;
 					index2 = i+1;
                     repaint();
 
+
+                    accessed += 2;
+                    mutated += 2;
                     flip(index1,index2);
                     sorted = false;
                 }
@@ -138,6 +163,8 @@ public class Piece extends JPanel {
         }
         index1 = -1;
         index2 = -1;
+        System.out.println(accessed);
+        System.out.println(mutated);
     }
 
     private void flip(int index1, int index2) throws InterruptedException { //this flips two buildings.
