@@ -41,6 +41,11 @@ public class Piece extends JPanel {
 		super.paintComponent(g);
 		printbackgroup(g);
 
+        
+        
+        destroyer.drawcar(g);
+
+        
 		for(int i = 0; i < buildings.length; i++) {
 			
 			if(i == index1 || i == index2 || i < sortednum) {
@@ -65,14 +70,6 @@ public class Piece extends JPanel {
 		for(int i = 0; i < 32; i++) {
 			g.fillRect(30*i + 20, 700, 15, 5);
 		}
-        if(index1 == -1) {
-            destroyer.setX(0);
-        }
-        else{ //moving animation here
-            destroyer.setX(buildings[index1].getX());
-        }
-        
-        destroyer.drawcar(g);
 	}
 
 
@@ -173,9 +170,18 @@ public class Piece extends JPanel {
         int building1x = buildings[index1].getX();
         int building2x = buildings[index2].getX();
 
+        Graphics g = this.getGraphics();
+
+        if(index1 == -1) {
+            destroyer.setX(0);
+        }
+        else{ //moving animation here
+            destroyer.setX(buildings[index1].getX());
+        }
+
 
         while(true) {
-            buildings[index1].setHeight(buildings[index1].getHeight() + 10);
+            buildings[index1].setHeight(buildings[index1].getHeight() + 10); //left down
             Thread.sleep(10);
             repaint();
             
@@ -188,9 +194,14 @@ public class Piece extends JPanel {
             }
         }
 
-        
+        if(index2 == -1) {
+            destroyer.setX(0);
+        }
+        else{ //moving animation here
+            destroyer.setX(buildings[index2].getX());
+        }
         while(true) {
-            buildings[index2].setHeight(buildings[index2].getHeight() + 10);
+            buildings[index2].setHeight(buildings[index2].getHeight() + 10); //right down
             Thread.sleep(10);
             repaint();
             
@@ -206,6 +217,7 @@ public class Piece extends JPanel {
         buildings[index1].setX(building2x);
         buildings[index2].setX(building1x);
 
+        
         while(true) { 
             buildings[index1].setHeight(buildings[index1].getHeight()-10);
             repaint();
@@ -216,6 +228,12 @@ public class Piece extends JPanel {
             }
         }
 
+        if(index2 == -1) {
+            destroyer.setX(0);
+        }
+        else{ //moving animation here
+            destroyer.setX(buildings[index2].getX());
+        }
         while(true) { 
             buildings[index2].setHeight(buildings[index2].getHeight()-10);
             repaint();

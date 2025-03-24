@@ -15,11 +15,6 @@ public class car {
 
 
 
-
-    
-
-
-
     public void drawcar(Graphics g) {
         Color asd = new Color(200,200,200);
         g.setColor(asd);
