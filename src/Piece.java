@@ -139,7 +139,7 @@ public class Piece extends JPanel {
                 
                 
                 
-                destroyer.setX(i*99);
+                destroyer.setX(i*99); //SCALE THIS TODO: SCALE------------------------------------------------------------------------
                 repaint();
                 Thread.sleep(1000);
                 //DO THE CAR ANIMATION HERE
