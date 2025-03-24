@@ -92,8 +92,6 @@ public class Piece extends JPanel {
             flip(index1,index2);
         }
             
-        
-        
         for(int i = 0; i < buildings.length + 1; i++) {
             sortednum++;
             repaint();
