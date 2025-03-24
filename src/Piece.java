@@ -228,12 +228,7 @@ public class Piece extends JPanel {
             }
         }
 
-        if(index2 == -1) {
-            destroyer.setX(0);
-        }
-        else{ //moving animation here
-            destroyer.setX(buildings[index2].getX());
-        }
+        
         while(true) { 
             buildings[index2].setHeight(buildings[index2].getHeight()-10);
             repaint();
