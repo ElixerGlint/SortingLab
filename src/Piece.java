@@ -106,6 +106,8 @@ public class Piece extends JPanel {
     }
 
     public void insertionsort() throws InterruptedException { // considered to be the fastest of the three sorting ON AVG
+        int accessed = 0;
+        int mutated = 0;
 
         for (int i = 1; i < buildings.length; i++) {
             int j = i-1;
@@ -114,9 +116,11 @@ public class Piece extends JPanel {
             repaint();
             Thread.sleep(1000);
             while(j >= 0 && buildings[j].getHeight() > mover) {
-                
+                accessed++;
                 index1 = j+1;
                 index2 = j;
+                mutated += 2;
+                accessed += 2;
                 flip(index1, index2);
                 j--;
             }
