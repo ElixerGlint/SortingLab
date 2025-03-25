@@ -18,8 +18,7 @@ public class Piece extends JPanel {
         index2 = -1;
         sortednum = -1;
         for (int i = 0; i < buildings.length; i++) {
-            buildings[i].setX((i * (980 / buildings.length))); // cool math: scales it for the # of buildings
-                                                               // (i*(1040/buildings.length))
+            buildings[i].setX((i * (980 / buildings.length))); // cool math: scales it for the # of buildings (i*(1040/buildings.length))
         }
         destroyer = new car();
     }
@@ -33,8 +32,7 @@ public class Piece extends JPanel {
         index2 = -1;
         sortednum = -1;
         for (int i = 0; i < buildings.length; i++) {
-            buildings[i].setX((i * (980 / buildings.length))); // cool math: scales it for the # of buildings
-                                                               // (i*(1040/buildings.length))
+            buildings[i].setX((i * (980 / buildings.length))); // cool math: scales it for the # of buildings (i*(1040/buildings.length))
         }
         destroyer = new car();
     }
