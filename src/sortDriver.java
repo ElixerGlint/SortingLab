@@ -7,6 +7,7 @@ public class sortDriver {
 	public static void main(String[] args) throws InterruptedException {
 		JFrame frame = new JFrame();
 
+		//getting all of the inputs
 		String[] choices = {"Bubble Sort","Insertion Sort","Selection Sort"};
 		String whichsort = (String)(JOptionPane.showInputDialog(null, "What type of sorting should the city use to make the skyline more pretty?", "Algorithm Selector",JOptionPane.QUESTION_MESSAGE,null,choices,choices[0])); 
 
@@ -48,6 +49,6 @@ public class sortDriver {
 		}
 		table.getDestroyer().setX(-200);
 		frame.repaint();
-
+		
 	}
 }
