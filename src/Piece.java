@@ -104,6 +104,33 @@ public class Piece extends JPanel {
         index2 = -1;
     }
 
+    public void selectionsortnopause() throws InterruptedException {
+        for (int i = 0; i < buildings.length; i++) {
+            int minspot = i;
+            for (int j = i; j < buildings.length; j++) {
+                destroyer.setX(buildings[i].getX());
+                repaint();
+                // ----------------------------------------------------------
+                d.setAccessed(d.getAccessed()+2); //+=2
+                if (buildings[minspot].compareTo(buildings[j]) < 0) {
+                    minspot = j;
+                }
+            }
+
+            index1 = i;
+            index2 = minspot;
+
+            d.setAccessed(d.getAccessed()+2);
+            d.setMutated(d.getMutated()+2);
+            
+            repaint();
+            flipnopause(index1, index2);
+        }
+
+        index1 = -1;
+        index2 = -1;
+    }
+
     public void insertionsort() throws InterruptedException { // considered to be the fastest of the three sorting ON AVG
 
         for (int i = 1; i < buildings.length; i++) {
@@ -133,23 +160,6 @@ public class Piece extends JPanel {
         index1 = -1;
         index2 = -1;
     }
-    // /*public static int binarysearch (Integer[] arr, int waldo) {
-    // int left = 0;
-    // int right = arr.length-1;
-    // while(right >= left) {
-    // int middle = (right + left)/2;
-    // if(arr[middle] == waldo) {
-    // return middle;
-    // }
-    // else if(arr[middle] > waldo) {
-    // right = middle -1;
-    // }
-    // else {
-    // left = middle +1;
-    // }
-    // }
-    // return -1;
-    // }*/
 
     public void bubblesort() throws InterruptedException {
         int scans = 0;
@@ -262,4 +272,107 @@ public class Piece extends JPanel {
         buildings[index1].setHeight(building2height);
         buildings[index2].setHeight(building1height);
     }
+
+    private void flipnopause(int index1, int index2) throws InterruptedException { // this flips two buildings.
+        int building1height = buildings[index1].getHeight();
+        int building2height = buildings[index2].getHeight();
+        int building1x = buildings[index1].getX();
+        int building2x = buildings[index2].getX();
+
+        Graphics g = this.getGraphics();
+
+        if (index1 == -1) {
+            destroyer.setX(0);
+        } else { // moving animation here
+            destroyer.setX(buildings[index1].getX());
+        }
+
+        while (true) {
+            buildings[index1].setHeight(buildings[index1].getHeight() + 10); // left down
+            repaint();
+
+            if (buildings[index1].getHeight() > 0) {
+                buildings[index1].setHeight(0);
+                repaint();
+                break;
+            }
+        }
+
+        if (index2 == -1) {
+            destroyer.setX(0);
+        } else { // moving animation here
+            destroyer.setX(buildings[index2].getX());
+        }
+        while (true) {
+            buildings[index2].setHeight(buildings[index2].getHeight() + 10); // right down
+      
+            repaint();
+
+            if (buildings[index2].getHeight() > 0) {
+                buildings[index2].setHeight(0);
+                repaint();
+             
+                break;
+            }
+        }
+
+        buildings[index1].setX(building2x);
+        buildings[index2].setX(building1x);
+
+        while (true) {
+            buildings[index1].setHeight(buildings[index1].getHeight() - 10);
+            repaint();
+    
+            if (buildings[index1].getHeight() < building1height) {
+                buildings[index1].setHeight(building1height);
+                break;
+            }
+        }
+
+        while (true) {
+            buildings[index2].setHeight(buildings[index2].getHeight() - 10);
+            repaint();
+
+         
+            if (buildings[index2].getHeight() < building2height) {
+                buildings[index2].setHeight(building2height);
+                break;
+            }
+        }
+
+        buildings[index1].setX(building1x);
+        buildings[index2].setX(building2x);
+        buildings[index1].setHeight(building2height);
+        buildings[index2].setHeight(building1height);
+    }
+    public void flipallbuildings() {
+        for(int i = 0; i < buildings.length/2; i++) {
+            int count = buildings.length-1-i;
+            int temp = buildings[i].getHeight();
+            buildings[i].setHeight(buildings[count].getHeight());
+            buildings[count].setHeight(temp);
+        }
+        index1 = -1;
+        index2 = -1;
+        sortednum = 0;
+    }
+
+    public data getD() {
+        return d;
+    }
+
+    public void setD(data d) {
+        this.d = d;
+    }
+
+    public Building[] getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(Building[] buildings) {
+        this.buildings = buildings;
+    }
+
+    
+    
 }
