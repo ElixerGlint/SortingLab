@@ -26,11 +26,10 @@ public class sortDriver {
 
 		if(mixtype.equals("Backwards")) {
 			table.selectionsortnopause();
-			table.getD().setAccessed(0);
-			table.getD().setMutated(0);
-
 			table.flipallbuildings();
 
+			table.getD().setAccessed(0);
+			table.getD().setMutated(0);
 		}
 
 		frame.add(table);
