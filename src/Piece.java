@@ -80,7 +80,7 @@ public class Piece extends JPanel {
                 Thread.sleep(100);
                 // ----------------------------------------------------------
                 accessed += 2;
-                if (buildings[minspot].compareTo(buildings[j]) > 0) {
+                if (buildings[minspot].compareTo(buildings[j]) < 0) {
                     minspot = j;
                 }
             }
@@ -90,6 +90,7 @@ public class Piece extends JPanel {
 
             accessed += 2;
             mutated += 2;
+            
             repaint();
             flip(index1, index2);
         }
@@ -115,7 +116,7 @@ public class Piece extends JPanel {
             destroyer.setX(buildings[i].getX());
             repaint();
             Thread.sleep(1000);
-            while(j >= 0 && buildings[j].getHeight() > mover) {
+            while(j >= 0 && buildings[j].getHeight() < mover) {
                 accessed++;
                 index1 = j+1;
                 index2 = j;
@@ -136,7 +137,6 @@ public class Piece extends JPanel {
         index1 = -1;
         index2 = -1;
     }
-
     // /*public static int binarysearch (Integer[] arr, int waldo) {
     // int left = 0;
     // int right = arr.length-1;
