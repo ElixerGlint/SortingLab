@@ -10,7 +10,7 @@ public class sortDriver {
 		//int amountoftowers = JOptionPane.showOptionDialog(null, "How many towers would you like", null, 0, 0, JOptionPane.QUESTION_MESSAGE, null, 10);
 
 		String[] choices = {"Bubble Sort","Insertion Sort","Selection Sort"};
-		String whichsort = (String)(JOptionPane.showInputDialog(null, "What type of sorting should the city use to make the skyline more pretty?", "Algorithm Selector",JOptionPane.QUESTION_MESSAGE,null,choices,choices[1])); 
+		String whichsort = (String)(JOptionPane.showInputDialog(null, "What type of sorting should the city use to make the skyline more pretty?", "Algorithm Selector",JOptionPane.QUESTION_MESSAGE,null,choices,choices[0])); 
 
 		frame.setSize(1000, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
