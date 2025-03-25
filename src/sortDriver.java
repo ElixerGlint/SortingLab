@@ -48,7 +48,7 @@ public class sortDriver {
 		if(whichsort.equals("Insertion Sort")) {
 			table.insertionsort();
 		}
-
+		table.getDestroyer().setX(-200);
 		frame.repaint();
 
 	}

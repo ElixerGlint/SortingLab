@@ -274,6 +274,7 @@ public class Piece extends JPanel {
     }
 
     private void flipnopause(int index1, int index2) throws InterruptedException { // this flips two buildings.
+
         int building1height = buildings[index1].getHeight();
         int building2height = buildings[index2].getHeight();
         int building1x = buildings[index1].getX();
@@ -345,6 +346,7 @@ public class Piece extends JPanel {
         buildings[index1].setHeight(building2height);
         buildings[index2].setHeight(building1height);
     }
+  
     public void flipallbuildings() {
         for(int i = 0; i < buildings.length/2; i++) {
             int count = buildings.length-1-i;
@@ -371,6 +373,14 @@ public class Piece extends JPanel {
 
     public void setBuildings(Building[] buildings) {
         this.buildings = buildings;
+    }
+
+    public car getDestroyer() {
+        return destroyer;
+    }
+
+    public void setDestroyer(car destroyer) {
+        this.destroyer = destroyer;
     }
 
     
