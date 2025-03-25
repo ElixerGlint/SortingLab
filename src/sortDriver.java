@@ -1,13 +1,11 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
+//This is my driver
 
 public class sortDriver {
 	public static void main(String[] args) throws InterruptedException {
 		JFrame frame = new JFrame();
-
-		//int amountoftowers = JOptionPane.showOptionDialog(null, "How many towers would you like", null, 0, 0, JOptionPane.QUESTION_MESSAGE, null, 10);
 
 		String[] choices = {"Bubble Sort","Insertion Sort","Selection Sort"};
 		String whichsort = (String)(JOptionPane.showInputDialog(null, "What type of sorting should the city use to make the skyline more pretty?", "Algorithm Selector",JOptionPane.QUESTION_MESSAGE,null,choices,choices[0])); 

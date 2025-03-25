@@ -10,6 +10,9 @@ public class Piece extends JPanel {
     private car destroyer;
     private data d;
 
+    /**
+     * default constructor
+     */
     public Piece() {
         buildings = new Building[10];
         for (int i = 0; i < buildings.length; i++) {
@@ -25,6 +28,10 @@ public class Piece extends JPanel {
         d = new data();
     }
 
+    /**
+     * full param constructor
+     * @param numofbuildings the number of buildings
+     */
     public Piece(int numofbuildings) {
         buildings = new Building[numofbuildings];
         for (int i = 0; i < buildings.length; i++) {
@@ -40,6 +47,9 @@ public class Piece extends JPanel {
         d = new data();
     }
 
+    /**
+     * The master print function, is called every time it is repainted
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         printbackgroup(g);
@@ -59,6 +69,10 @@ public class Piece extends JPanel {
         d.printdata(g);
     }
 
+    /**
+     * This prints the background, every time
+     * @param g the graphics driver
+     */
     public void printbackgroup(Graphics g) {
         Color skyblue = new Color(135, 206, 235);
         g.setColor(skyblue);
@@ -71,6 +85,10 @@ public class Piece extends JPanel {
         }
     }
 
+    /**
+     * This does the selection sort on the buildings
+     * @throws InterruptedException for the thread.pause
+     */
     public void selectionsort() throws InterruptedException {
         for (int i = 0; i < buildings.length; i++) {
             int minspot = i;
@@ -104,6 +122,11 @@ public class Piece extends JPanel {
         index2 = -1;
     }
 
+    /**
+     * This is only for when im making it go backwards, i wanted it to go fast so i removed all the pauses.
+     * This function pairs with flipnopause
+     * @throws InterruptedException 
+     */
     public void selectionsortnopause() throws InterruptedException {
         for (int i = 0; i < buildings.length; i++) {
             int minspot = i;
@@ -131,6 +154,10 @@ public class Piece extends JPanel {
         index2 = -1;
     }
 
+    /**
+     * This is the insertion sort for the buildings
+     * @throws InterruptedException for thread.sleep
+     */
     public void insertionsort() throws InterruptedException { // considered to be the fastest of the three sorting ON AVG
 
         for (int i = 1; i < buildings.length; i++) {
@@ -161,6 +188,10 @@ public class Piece extends JPanel {
         index2 = -1;
     }
 
+    /**
+     * This bubble sorts the buildings
+     * @throws InterruptedException for thread.sleep
+     */
     public void bubblesort() throws InterruptedException {
         int scans = 0;
         boolean sorted = false;
@@ -198,6 +229,12 @@ public class Piece extends JPanel {
         // System.out.println(mutated);
     }
 
+    /**
+     * This is my master flip function, which is called from all of my sorts
+     * @param index1 the first index to be flipped
+     * @param index2 the second index to be flipped
+     * @throws InterruptedException for thread.sleep
+     */
     private void flip(int index1, int index2) throws InterruptedException { // this flips two buildings.
         int building1height = buildings[index1].getHeight();
         int building2height = buildings[index2].getHeight();
@@ -273,6 +310,12 @@ public class Piece extends JPanel {
         buildings[index2].setHeight(building1height);
     }
 
+    /**
+     * pairs with selectionsortnopause-- for explanation open it
+     * @param index1 index1
+     * @param index2 index2
+     * @throws InterruptedException 
+     */
     private void flipnopause(int index1, int index2) throws InterruptedException { // this flips two buildings.
 
         int building1height = buildings[index1].getHeight();
@@ -347,6 +390,9 @@ public class Piece extends JPanel {
         buildings[index2].setHeight(building1height);
     }
   
+    /**
+     * This is for making the buildings go backwards, it sorts them then calls this function to flip them the other way
+     */
     public void flipallbuildings() {
         for(int i = 0; i < buildings.length/2; i++) {
             int count = buildings.length-1-i;
@@ -359,6 +405,7 @@ public class Piece extends JPanel {
         sortednum = 0;
     }
 
+    //getters and setters
     public data getD() {
         return d;
     }

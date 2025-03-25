@@ -6,14 +6,18 @@ public class data {
     private int accessed;
     private int mutated;
 
-
+    /**
+     * the default constructor
+     */
     public data () {
         accessed = 0;
         mutated = 0;
     }
 
-
-
+    /**
+     * This prints the data out (acessed and mutated)
+     * @param g the graphics driver
+     */
     public void printdata(Graphics g) {
         g.setFont(new Font("Arial", Font.PLAIN, 20)); //URL
 		g.setColor(Color.white); 
@@ -21,8 +25,7 @@ public class data {
         g.drawString("Mutated: " + mutated, 0, 40);
     }
 
-
-
+    //getters and setters
     public int getAccessed() {
         return accessed;
     }

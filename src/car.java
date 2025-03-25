@@ -6,15 +6,18 @@ public class car {
     private int x;
     private int y;
 
+    /**
+     * default constructor
+     */
     public car() {
         x = 0;
         y = 650;
     }
 
-
-
-
-
+    /**
+     * this draws the car
+     * @param g the graphics driver
+     */
     public void drawcar(Graphics g) {
         Color asd = new Color(200,200,200);
         g.setColor(asd);
@@ -27,7 +30,7 @@ public class car {
         g.drawString("FBI",x,y+25);
     }
 
-
+    //getters and setters
     public int getX() {
         return x;
     }
@@ -44,5 +47,4 @@ public class car {
         this.y = y;
     }
     
-
 }
