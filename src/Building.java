@@ -22,7 +22,7 @@ public class Building implements Comparable { //IMPLEMENTS COMPARABLE
 
 	public void drawPiece(Graphics g, Color c) {
 		g.setColor(c); //set background color
-		g.fillRect(x, y, width, height); //70 normally, NEEDS TO BE SCALED
+		g.fillRect(x, y, width, height);
 	}
 
 	//getters and setters

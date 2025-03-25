@@ -8,6 +8,7 @@ public class Piece extends JPanel {
     private int index2;
     private int sortednum;
     private car destroyer;
+    private data d;
 
     public Piece() {
         buildings = new Building[10];
@@ -21,6 +22,7 @@ public class Piece extends JPanel {
             buildings[i].setX((i * (980 / buildings.length))); // cool math: scales it for the # of buildings (i*(1040/buildings.length))
         }
         destroyer = new car();
+        d = new data();
     }
 
     public Piece(int numofbuildings) {
@@ -35,6 +37,7 @@ public class Piece extends JPanel {
             buildings[i].setX((i * (980 / buildings.length))); // cool math: scales it for the # of buildings (i*(1040/buildings.length))
         }
         destroyer = new car();
+        d = new data();
     }
 
     public void paintComponent(Graphics g) {
@@ -53,6 +56,7 @@ public class Piece extends JPanel {
 
         }
 
+        d.printdata(g);
     }
 
     public void printbackgroup(Graphics g) {
@@ -68,8 +72,6 @@ public class Piece extends JPanel {
     }
 
     public void selectionsort() throws InterruptedException {
-        int accessed = 0;
-        int mutated = 0;
         for (int i = 0; i < buildings.length; i++) {
             int minspot = i;
             for (int j = i; j < buildings.length; j++) {
@@ -77,7 +79,7 @@ public class Piece extends JPanel {
                 repaint();
                 Thread.sleep(100);
                 // ----------------------------------------------------------
-                accessed += 2;
+                d.setAccessed(d.getAccessed()+2); //+=2
                 if (buildings[minspot].compareTo(buildings[j]) < 0) {
                     minspot = j;
                 }
@@ -86,8 +88,8 @@ public class Piece extends JPanel {
             index1 = i;
             index2 = minspot;
 
-            accessed += 2;
-            mutated += 2;
+            d.setAccessed(d.getAccessed()+2);
+            d.setMutated(d.getMutated()+2);
             
             repaint();
             flip(index1, index2);
@@ -100,13 +102,9 @@ public class Piece extends JPanel {
         }
         index1 = -1;
         index2 = -1;
-        System.out.println(accessed);
-        System.out.println(mutated);
     }
 
     public void insertionsort() throws InterruptedException { // considered to be the fastest of the three sorting ON AVG
-        int accessed = 0;
-        int mutated = 0;
 
         for (int i = 1; i < buildings.length; i++) {
             int j = i-1;
@@ -115,11 +113,11 @@ public class Piece extends JPanel {
             repaint();
             Thread.sleep(1000);
             while(j >= 0 && buildings[j].getHeight() < mover) {
-                accessed++;
+                d.setAccessed(d.getAccessed()+1);
                 index1 = j+1;
                 index2 = j;
-                mutated += 2;
-                accessed += 2;
+                d.setMutated(d.getMutated()+2);
+                d.setAccessed(d.getAccessed()+2);
                 flip(index1, index2);
                 j--;
             }
@@ -155,8 +153,6 @@ public class Piece extends JPanel {
 
     public void bubblesort() throws InterruptedException {
         int scans = 0;
-        int accessed = 0;
-        int mutated = 0;
         boolean sorted = false;
         while (!sorted) {
             sorted = true;
@@ -167,14 +163,14 @@ public class Piece extends JPanel {
                 Thread.sleep(1000);
 
                 // ----------------------------------------------------------
-                accessed += 2;
+                d.setAccessed(d.getAccessed()+2);
                 if (buildings[i].compareTo(buildings[i + 1]) < 0) {
                     index1 = i;
                     index2 = i + 1;
                     repaint();
 
-                    accessed += 2;
-                    mutated += 2;
+                    d.setAccessed(d.getAccessed()+2);
+                    d.setMutated(d.getMutated()+2);
                     flip(index1, index2);
                     sorted = false;
                 }
